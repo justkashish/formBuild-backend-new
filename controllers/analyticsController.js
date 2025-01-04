@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Analytics = require("../models/analyticsModel");
+const User = require("../models/userModel");
 
 const updateAnalytics = async(req, res) => {
     const { id } = req.params;

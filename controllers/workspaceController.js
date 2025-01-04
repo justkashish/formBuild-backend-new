@@ -1,6 +1,15 @@
 const mongoose = require("mongoose");
 const User = require("../models/userModel");
+const Response = require("../models/responseModel");
+const Form = require("../models/formModel");
 const jwt = require("jsonwebtoken");
+const Analytics = require("../models/analyticsModel");
+
+const generateAccessToken = (email, permission) => {
+    return jwt.sign({ email, permission },
+        process.env.WORKSPACE_ACCESS_TOKEN_SECRET, { expiresIn: jwtExpiresIn }
+    );
+};
 
 const addWorkSpaces = async(req, res) => {
     const { id } = req.params;

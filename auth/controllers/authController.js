@@ -68,8 +68,8 @@ const loginUser = async(req, res) => {
 
         // Generate the access token
         const accessToken = generateAccessToken(user._id);
-
-        // Convert the Mongoose document to a plain object
+        console.log("access token is ", accessToken)
+            // Convert the Mongoose document to a plain object
         const userData = user.toObject();
 
         // Remove the password field from the user data

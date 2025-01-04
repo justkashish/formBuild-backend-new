@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const User = require("../models/userModel");
+const Folder = require("../models/folderModel");
+const Form = require("../models/formModel");
 const jwt = require("jsonwebtoken");
 
 const jwtExpiresIn = "7200m";
@@ -29,6 +31,8 @@ const getUser = async(req, res) => {
     try {
         const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
         const userIdFromToken = decodedToken && decodedToken.id ? decodedToken.id : null;
+
+
 
         if (!mongoose.Types.ObjectId.isValid(userIdFromToken)) {
             return res.status(403).json({ message: "Invalid or corrupted token." });

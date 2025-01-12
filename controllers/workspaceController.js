@@ -4,6 +4,9 @@ const Response = require("../models/responseModel");
 const Form = require("../models/formModel");
 const jwt = require("jsonwebtoken");
 const Analytics = require("../models/analyticsModel");
+const Folder = require("../models/folderModel");
+
+const jwtExpiresIn = "7200m";
 
 const generateAccessToken = (email, permission) => {
     return jwt.sign({ email, permission },
